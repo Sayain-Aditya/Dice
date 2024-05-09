@@ -1,19 +1,14 @@
-import styled from "styled-components"
-
-const Button = styled.button`
-
-
-`
+import { useState } from "react";
+import Start from "./Components/Start";
+import Gameplay from "./Components/Gameplay";
 
 function App() {
+  const [isGame, setisGame] = useState(true);
+  const togglegameplay = () => {
+    setisGame((prev) => !prev);
+  };
 
-  return (
-    <>
-     <button>
-      This is a
-     </button>
-    </>
-  )
+  return <>{isGame ? <Gameplay /> : <Start toggle={togglegameplay} />}</>;
 }
 
-export default App
+export default App;
