@@ -1,5 +1,6 @@
 import React from "react";
 import styled from "styled-components";
+import { Button } from "../style/button";
 
 function Start({ toggle }) {
   return (
@@ -28,26 +29,5 @@ const Container = styled.div`
     font-size: 96px;
     white-space: nowrap;
     margin-bottom: -5px;
-  }
-`;
-
-const Button = styled.button`
-  display: flex;
-  justify-content: center;
-  padding: 10px 18px;
-  background: black;
-  border-radius: 5px;
-  color: white;
-  font-size: 16px;
-  min-width: 226px;
-  border: none;
-  cursor: pointer;
-  border: 1px solid transparent;
-  transition: 0.4s background ease-in;
-  &:hover {
-    background-color: white;
-    border: 1px solid black;
-    color: black;
-    transition: 0.3s background ease-in;
   }
 `;

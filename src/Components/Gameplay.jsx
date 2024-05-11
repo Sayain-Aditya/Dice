@@ -4,12 +4,15 @@ import NumberSelector from "./NumberSelector";
 import styled from "styled-components";
 import Rolldice from "./Rolldice";
 import { useState } from "react";
+import { Button, OutlineButton } from "../style/button";
+import Rules from "./Rules";
 
 function Gameplay() {
   const [score, setScore] = useState(0);
   const [select, setSelect] = useState();
   const [current, setCurrent] = useState(1);
   const [error, setError] = useState("");
+  const [rules, setRules] = useState(false);
 
   const generateNumber = (min, max) =>
     Math.floor(Math.random() * (max - min) + min);
@@ -31,6 +34,10 @@ function Gameplay() {
     setSelect(undefined);
   };
 
+  const resetScore = () => {
+    setScore(0)
+  }
+
   return (
     <MainContainer>
       <div className="topsection">
@@ -43,6 +50,13 @@ function Gameplay() {
         />
       </div>
       <Rolldice current={current} rollDice={rollDice} />
+      <div className="btn">
+        <OutlineButton onClick={resetScore}>Reset</OutlineButton>
+        <Button 
+        onClick={() => setRules((prev) => !prev)}
+        >{rules ? "Hide" : "Show"} Rule</Button>
+      </div>
+      {rules && <Rules />}
     </MainContainer>
   );
 }
@@ -56,5 +70,13 @@ const MainContainer = styled.main`
     display: flex;
     justify-content: space-around;
     align-items: end;
+  }
+  .btn{
+    margin-top: 40px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
   }
 `;
