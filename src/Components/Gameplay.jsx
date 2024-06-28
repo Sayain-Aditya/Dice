@@ -35,8 +35,8 @@ function Gameplay() {
   };
 
   const resetScore = () => {
-    setScore(0)
-  }
+    setScore(0);
+  };
 
   return (
     <MainContainer>
@@ -52,9 +52,9 @@ function Gameplay() {
       <Rolldice current={current} rollDice={rollDice} />
       <div className="btn">
         <OutlineButton onClick={resetScore}>Reset</OutlineButton>
-        <Button 
-        onClick={() => setRules((prev) => !prev)}
-        >{rules ? "Hide" : "Show"} Rule</Button>
+        <Button onClick={() => setRules((prev) => !prev)}>
+          {rules ? "Hide" : "Show"} Rule
+        </Button>
       </div>
       {rules && <Rules />}
     </MainContainer>
@@ -64,14 +64,13 @@ function Gameplay() {
 export default Gameplay;
 
 const MainContainer = styled.main`
-
   .topsection {
     margin-top: -50pxpx;
     display: flex;
     justify-content: space-around;
     align-items: end;
   }
-  .btn{
+  .btn {
     margin-top: 40px;
     display: flex;
     flex-direction: column;
